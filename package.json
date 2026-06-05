@@ -1,0 +1,33 @@
+{
+  "name": "pi-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "pi extension providing Exa-backed code_search, web_search, and web_fetch tools",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check .",
+    "test": "vitest run"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "dependencies": {
+    "exa-js": "2.13.0",
+    "typebox": "1.1.38"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.16",
+    "@earendil-works/pi-coding-agent": "0.78.0",
+    "@types/node": "25.9.1",
+    "tsx": "4.22.4",
+    "typescript": "5.9.3",
+    "vitest": "4.1.8"
+  }
+}
