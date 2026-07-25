@@ -94,11 +94,9 @@ export default function piToolsExtension(pi: ExtensionAPI): void {
     label: 'Web Search',
     description:
       'Search the web with Exa auto search and return concise results with highlights.',
-    promptSnippet:
-      'Search the web with Exa auto mode for current pages and lookup queries.',
+    promptSnippet: 'Search the web with Exa auto mode.',
     promptGuidelines: [
-      'Use web_search for quick web lookups and discovery when repository-local sources are insufficient.',
-      'Use web_fetch after web_search when full page content is needed from known URLs.',
+      'Use web_search to discover pages, then web_fetch to read selected URLs.',
     ],
     parameters: WebSearchParams,
     async execute(_toolCallId, params, signal) {
@@ -112,10 +110,6 @@ export default function piToolsExtension(pi: ExtensionAPI): void {
     description:
       'Fetch clean text content from known URLs using Exa contents extraction.',
     promptSnippet: 'Read known URLs as clean page text via Exa.',
-    promptGuidelines: [
-      'Use web_fetch when you already have one or more URLs and need their page content.',
-      'Use web_search before web_fetch when you still need to discover candidate pages.',
-    ],
     parameters: WebFetchParams,
     async execute(_toolCallId, params, signal) {
       return performWebFetch(loadConfig(), params, signal);
@@ -127,10 +121,6 @@ export default function piToolsExtension(pi: ExtensionAPI): void {
     label: 'Answer',
     description: 'Generate a grounded answer with Exa citations.',
     promptSnippet: 'Answer questions with Exa grounded citations.',
-    promptGuidelines: [
-      'Use answer for direct factual questions that need a concise grounded response with citations.',
-      'Use web_search when you need to discover pages before deciding what to read.',
-    ],
     parameters: AnswerParams,
     async execute(_toolCallId, params, signal) {
       return performAnswer(loadConfig(), params, signal);
@@ -142,11 +132,9 @@ export default function piToolsExtension(pi: ExtensionAPI): void {
     label: 'Code Search',
     description:
       'Get token-efficient coding context and examples from Exa Code.',
-    promptSnippet:
-      'Find current code examples, library APIs, and implementation patterns using Exa Code.',
+    promptSnippet: 'Find current code examples and library APIs via Exa Code.',
     promptGuidelines: [
-      'Use code_search for third-party library APIs, framework usage, SDK examples, and code-focused documentation.',
-      'Use code_search before implementing against unfamiliar or recently changed APIs.',
+      'Use code_search for current third-party library and SDK APIs.',
     ],
     parameters: CodeSearchParams,
     async execute(_toolCallId, params, signal) {
