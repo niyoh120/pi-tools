@@ -19,8 +19,10 @@
     ]
   },
   "dependencies": {
-    "exa-js": "2.13.0",
-    "typebox": "1.1.38"
+    "exa-js": "2.13.0"
+  },
+  "peerDependencies": {
+    "typebox": "*"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
